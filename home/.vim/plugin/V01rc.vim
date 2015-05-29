@@ -273,3 +273,8 @@ let g:agprg="/home/dsun/tools/bin/ag"
 if executable("zsh")
   set shell=zsh\ -l
 endif
+
+let s:private_vimrc=expand("~/.private-vimrc")
+if filereadable(s:private_vimrc)
+  execute 'source '.fnameescape(s:private_vimrc)
+endif
