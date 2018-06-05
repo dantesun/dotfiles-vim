@@ -1,5 +1,6 @@
 set nocompatible
 filetype off                  " required
+set shell=bash
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/tools/vim-plugins/Vundle.vim
@@ -8,7 +9,7 @@ set rtp+=~/tools/vim-plugins/Vundle.vim
 call vundle#begin('~/tools/vim-plugins')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'scrooloose/nerdtree'
 
