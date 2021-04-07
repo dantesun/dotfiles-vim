@@ -2,50 +2,44 @@ set nocompatible
 filetype off                  " required
 set shell=bash
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/tools/vim-plugins/Vundle.vim
-" call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-call vundle#begin('~/tools/vim-plugins')
+" Install vim-plug if we don't already have it
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/tools/vim-plugins')
 
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 
-Plugin 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 
-Plugin 'tpope/vim-surround' "Surround plugin
+Plug 'tpope/vim-surround' "Surround plugin
 
-Plugin 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 
-Plugin 'ervandew/supertab'
+Plug 'ervandew/supertab'
 
-Plugin 'vim-scripts/OmniCppComplete'
+Plug 'vim-scripts/OmniCppComplete'
 
-Plugin 'tpope/vim-ragtag'
+Plug 'tpope/vim-ragtag'
 
-Plugin 'mileszs/ack.vim'
+Plug 'mileszs/ack.vim'
 
-Plugin 'vim-scripts/EnhCommentify.vim'
+Plug 'vim-scripts/EnhCommentify.vim'
 
-Plugin 'vim-scripts/dbext.vim'
+Plug 'vim-scripts/dbext.vim'
 
-Plugin 'jeetsukumaran/vim-buffergator'
+Plug 'jeetsukumaran/vim-buffergator'
 
-Plugin 'vim-scripts/autoload_cscope.vim'
+Plug 'vim-scripts/autoload_cscope.vim'
 
-Plugin 'bling/vim-airline' "VIM status line
+Plug 'bling/vim-airline' "VIM status line
 
-Plugin 'tpope/vim-fugitive' "Git integration
+Plug 'tpope/vim-fugitive' "Git integration
 
-Plugin 'davidhalter/jedi-vim' "Python Autocompletion
 
-Plugin 'nvie/vim-flake8' "Python syntax check
-
-Plugin 'dantesun/vim-python-pep8-indent' 
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()
 
 filetype plugin indent on
